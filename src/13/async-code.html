@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // var a = {
+    //     sum(a,b) {
+    //         console.log(a+b)
+    //         return this
+    //     }
+    // }
+    //
+    // a.sum(2,3)
+    //     .sum(3,4)
+    //     .sum(4,5)
+
+
+    let axios = {
+        get() {
+            let pr = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve({
+                        g1: 1,
+                        g2: 2,
+                        message: "yoyoyo"
+                    })
+                }, 3000)
+            })
+            return pr;
+        }
+    }
+
+    axios.get()
+        .then((data) => {
+            return data.message
+        })
+        .then((message) => {
+            console.log(message)
+        })
+
+
+    axios.get()
+        .then((data) => {
+            return new Promise((res) => res('New Promise'))
+        })
+        .then((message) => {
+            console.log(message)
+        })
+
+    let fetch = (url) => {
+        return new Promise((res,rej)=>{
+            switch (url) {
+                case 'google': {
+                    setTimeout(() => {
+                        res({data: 'from google'})
+                    }, 3000)
+                    break;
+                }
+                case 'microsoft': {
+                    setTimeout(() => {
+                        res({data: 'from microsoft'})
+                    }, 1000)
+                    break;
+                }
+                case 'it-kamasutra': {
+                    setTimeout(()=>{
+                        res({data: 'from it-kamasutra'})
+                    }, 500)
+                    break;
+                }
+            }
+        })
+
+    }
+
+    // //вызываем запросы одновременно
+    // fetch('google').then(data=>console.log(data))
+    // fetch('microsoft').then(data=>console.log(data))
+    // fetch('it-kamasutra').then(data=>console.log(data))
+
+    //callbacl hell
+    // fetch('google').then(data=> {
+    //     console.log(data)
+    //     fetch('microsoft').then(data=> {
+    //         console.log(data)
+    //         fetch('it-kamasutra').then(data=>console.log(data))
+    //     })
+    // })
+
+
+    // fetch('google')
+    //     .then((data)=>{
+    //         console.log(data)
+    //         return fetch('microsoft')
+    //     })
+    //     .then((data)=>{
+    //         console.log(data)
+    //         return fetch('it-kamasutra')
+    //     })
+    //     .then((data)=>console.log(data))
+
+    // let makeRequests = async() => {
+    //     let data = await fetch('microsoft')
+    //     console.log(data)
+    //     data = await fetch('google')
+    //     console.log(data)
+    //     data = await fetch('it-kamasutra')
+    //     console.log(data)
+    // }
+
+    //makeRequests()
+
+    // let multiRequest = () => {
+    //     let p1 = fetch('google')
+    //     let p2 = fetch('microsoft')
+    //     let p3 = fetch('it-kamasutra')
+    //
+    //     Promise.all([p1,p2,p3]).then(data =>{
+    //         console.log('all finished')
+    //     })
+    // }
+
+    let multiRequest = () => {
+        let promises = [fetch('google'),
+            fetch('microsoft'),
+            fetch('it-kamasutra')]
+
+
+        let data = Promise.all([promises])
+    }
+
+    multiRequest()
+
+
+</script>
+</body>
+</html>
