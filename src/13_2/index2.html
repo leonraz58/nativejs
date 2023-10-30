@@ -1,0 +1,15 @@
+<script>
+//промис, который показывает алерт через 2 сек
+    let myPromise = new Promise((resolve) => {
+        setTimeout(()=>{
+            alert('Hello');
+            resolve();
+        },2000)
+
+    });
+
+    myPromise.then(( ) => {
+        console.log("myPromise зарезолвился, и я узнал об этом");
+    })
+
+</script>

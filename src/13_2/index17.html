@@ -1,0 +1,16 @@
+
+<script src="script5.js"></script>
+
+
+<script>
+    let pr1 = doAfter(4); // один промис
+    let pr2 = doAfter(7); // второй промис
+
+    pr1.then( () => console.log("pr1 resolved") ); // индивидуально подписываемся на каждый
+    pr2.then( () => console.log("pr2 resolved") );
+
+    let aggregatedPromise = Promise.all([pr1, pr2]); // получаем общий промис
+
+    aggregatedPromise.then( () => console.log("pr1 and pr2 resolved")); // сработает наш подписчик ТОЛЬКО когда все промисы, переданные в массиве в all будут resolved
+
+</script>

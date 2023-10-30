@@ -1,0 +1,9 @@
+<script src="axios.js"></script>
+<script src="api.js"></script>
+
+<script>
+    api.sendStudentsCountToItKamasutra(20)
+        .then(res => {
+            console.log(res.data.message);
+        });
+</script>

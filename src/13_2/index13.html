@@ -1,0 +1,24 @@
+
+
+<script src="script5.js"></script>
+
+<script>
+    //возвращаем данные из промиса и передаем в следующий
+
+    // let pr1 = doAfter(3);
+    // let pr2 = pr1.then( (n) => {
+    //     console.log('promise resolved ' + n)
+    //     return n
+    // } );
+    // pr2.then( (n) => console.log('promise resolved after p1 ' + n));
+
+    doAfter(3)
+         .then( (n) => {
+             console.log('promise resolved ' + n)
+             return n
+         } )
+        .then( (n) => console.log('promise resolved after p1 ' + n));
+
+
+
+</script>

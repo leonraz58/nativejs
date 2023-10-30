@@ -1,0 +1,20 @@
+
+
+<script src="script5.js"></script>
+
+<script>
+    
+    let promise3 = doAfter(3);
+    let promise2 = doAfter(5);
+
+    promise3.then( () => console.log('promise without setTimeout 3') ); //3 sec
+    promise2.then( () => console.log('promise without setTimeout 5') ); //5 sec
+
+    setTimeout(()=>{
+        promise3.then( () => console.log('promise resolved and i know it') ); //5 sec
+    },5000)
+
+
+
+
+</script>

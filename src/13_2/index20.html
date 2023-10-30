@@ -1,0 +1,13 @@
+<script src="script5.js"></script>
+
+<script>
+    let pr = doAfter(3)
+        .then(()=>{
+            console.log('promise resolved')
+            return 'something'
+        })
+        .then((name)=>{
+            console.log('promise resolved by this => ' + name)
+        })
+
+</script>

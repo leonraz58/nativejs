@@ -1,0 +1,15 @@
+
+
+<script src="script5.js"></script>
+
+<script>
+    //refactoring
+    let callback1 = () => console.log('promise resolved');
+    let callback2 = () => console.log('promise resolved after first');
+
+    let pr1 = doAfter(3);
+    let pr2 = pr1.then(callback1);
+    pr2.then(callback2);
+
+
+</script>

@@ -1,0 +1,17 @@
+
+<script src="script5.js"></script>
+
+
+<script>
+ //   doAfter(4).then( number => console.log(`я получил ${number} спустя 4 секунды`))
+
+    let promises = [doAfter(1),doAfter(2), doAfter(3)];
+    let commonPromise = Promise.all(promises);
+    commonPromise.then( () => {
+        // как вывести здесь все 3 числа?? гуглим Promise.all
+        console.log(promises[0])
+        console.log(promises[1])
+        console.log(promises[2])
+    } );
+
+</script>

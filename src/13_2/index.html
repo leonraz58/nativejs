@@ -1,0 +1,46 @@
+<script>
+    const doAfter = (sec) =>{
+        let myPromise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const randValue = Math.random()
+                if (randValue>0.1){
+                    resolve(randValue)
+                } else {
+                    reject(randValue)
+                }
+
+            }, sec*1000)
+        })
+        return myPromise
+    }
+
+    // const pr5 = doAfter(5)
+    // pr5.then(()=>console.log('resolved after 5 sec'))
+    // doAfter(3).then(()=>{console.log('resolved after 3 sec')})
+    // doAfter(10).then(()=>{console.log('resolved after 10 sec')})
+
+    let pr1 = doAfter(1)
+
+    // promise1
+    //     .then((rand)=>console.log(rand))
+    //     .then()
+    //     .then(()=>console.log(3))
+
+    let pr2 = pr1.then((n)=>{
+        console.log("pr1" + n)
+        return n*10
+    })
+    let pr3 = pr2.then((n)=>{
+        console.log("pr2" + n)
+        return n*10
+    })
+    let pr4 = pr3.then((n)=>{
+        console.log("pr3" + n)
+        
+    })
+
+    console.log('finish', pr1, pr2, pr3, pr4)
+
+
+
+</script>

@@ -1,0 +1,25 @@
+
+
+<script src="script5.js"></script>
+
+<script>
+    //тестим повторный резолв промиса
+    let prprpr = new Promise((resolve) => {
+        let i = 0
+        setInterval(()=>{
+            i++
+            resolve(i)
+        },5000)
+    })
+
+    for (let i = 0; i < 10; i++) {
+        setTimeout(()=>{
+            console.log(prprpr)
+        },5000*i)
+
+    }
+
+
+
+
+</script>

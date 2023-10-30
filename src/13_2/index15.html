@@ -1,0 +1,21 @@
+
+
+<script src="script5.js"></script>
+
+<script>
+    let pr = new Promise( (resolve) => {
+        let data = {
+            cities: [{title: "Minsk"}, {title: "Kiev"}],
+            website: "it-kamasutra.com"
+        };
+        resolve(data);
+    });
+
+    pr.then( data => {
+        console.log(data);
+        return data
+    })
+        .then( website => {
+            console.log(website.website);
+        })
+</script>

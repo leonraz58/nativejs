@@ -1,0 +1,31 @@
+<script src="axios.js"></script>
+<script src="api.js"></script>
+
+<script>
+    pr1 = api.getVacanciesCountFromMicrosoft()
+        .then(data => {
+            console.log('Microsoft -> ' + data.data.vacancies);
+            return data.data.vacancies
+        });
+
+    pr2 = api.getVacanciesCountFromGoogle()
+        .then(data => {
+            console.log('Google -> ' + data.data.vacancies);
+            return data.data.vacancies
+        });
+
+    const allPromise = Promise.all([pr1, pr2])
+
+    allPromise.then((res) => {
+        let resFromMs = res[0]
+        let resFromG = res[1]
+
+        api.sendStudentsCountToItKamasutra(resFromMs+resFromG)
+            .then(res => {
+                console.log('request -> ' + res.data.requestedCount)
+            })
+    })
+
+
+
+</script>
